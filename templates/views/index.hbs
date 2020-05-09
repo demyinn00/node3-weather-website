@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Weather</title>
+        <link rel="icon" href="/img/weather.png">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>   
+    <body>
+        <div class="main-content">
+            {{>header}}
+
+            <p>Use this site to get your weather!</p>
+
+            <form>
+                <input placeholder="Location">
+                <button>Search</button>
+            </form>
+
+            <p id="message-1"></p>
+            <p id="message-2"></p>
+        </div>
+        {{>footer}}
+        <script src="/js/app.js"></script>
+        <!--This will output to the terminal on the website look at app.js in that directory-->
+        <!--This will allow us to fetch the forecast because app.js in the js folder will be used-->
+        <!--for fetching data-->
+        <!--Put at the bottom so the script can render everything from this file-->
+    </body>
+</html>
