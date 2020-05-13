@@ -17,11 +17,19 @@ const forecast = (lat, long, callback) =>
         }
         else
         {
-            const msg = body.location.name + '. ' + body.current.weather_descriptions[0] + 
-                '. It is currently ' +
-                body.current.temperature +
-                ' degrees, but it feels like ' + 
-                body.current.feelslike + ' degrees.';
+            msg = body.location.name + ' is ' + body.current.weather_descriptions[0].toLowerCase() + 
+                    '. It is currently ' + body.current.temperature + ' degrees';
+            if (body.current.temperature === body.current.feelslike)
+            {
+                msg = msg + '. The humidity is ' + body.current.humidity +
+                    ' and the UV index is ' + body.current.uv_index + '.'; 
+            }
+            else 
+            {
+                msg = msg + ', but it feels like ' + body.current.feelslike + ' degrees' +
+                    '. The humidity is ' + body.current.humidity +
+                    ' and the UV index is ' + body.current.uv_index + '.';
+            }
             callback(undefined, msg);
         }
     });
